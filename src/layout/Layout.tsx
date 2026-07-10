@@ -6,6 +6,7 @@ import Contact from '../views/contact/Contact'
 import Products from '../views/products/Products'
 import CarProducts from '../views/products/car-products/CarProducts'
 import BikeProducts from '../views/products/bike-products/BikeProducts'
+import Info from '../views/info/Info'
 
 const navLinkStyles = ({ isActive }) => ({
   color: isActive ? '#007bff' : '#333',
@@ -17,11 +18,12 @@ const navLinkStyles = ({ isActive }) => ({
 
 export default function Layout() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/react-router">
       <nav>
         {/* Navigation */}
         <NavLink to="/" style={navLinkStyles}>Home</NavLink> | {" "}
         <NavLink to="/products" style={navLinkStyles}>Products</NavLink> | {" "}
+        <NavLink to="/customer/Tobias" style={navLinkStyles}>Customer Tobias</NavLink> | {" "}
         <NavLink to="/about" style={navLinkStyles}>About</NavLink> |{ " "} 
         <NavLink to="/contact" style={navLinkStyles}>Contact</NavLink>
       </nav>
@@ -33,6 +35,7 @@ export default function Layout() {
           <Route path="car" element={ <CarProducts/>}/>
           <Route path="bike" element={ <BikeProducts/>}/>
         </Route>
+        <Route path="/customer/:firstName" element={ <Info/> }/>
         <Route path="/about" element={ <About/>}/>
         <Route path="/contact" element={ <Contact/>}/>
       </Routes>
