@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Link, NavLink, Route, Routes } from 'react-router-dom'
 import './Layout.css'
 import Home from '../views/home/Home'
 import About from '../views/about/About'
@@ -7,15 +7,23 @@ import Products from '../views/products/Products'
 import CarProducts from '../views/products/car-products/CarProducts'
 import BikeProducts from '../views/products/bike-products/BikeProducts'
 
+const navLinkStyles = ({ isActive }) => ({
+  color: isActive ? '#007bff' : '#333',
+  textDecoration: isActive ? 'none' : 'underline',
+  fontWeight: isActive ? 'bold' : 'normal',
+  padding: '5px 10px'
+});
+
+
 export default function Layout() {
   return (
     <BrowserRouter>
       <nav>
         {/* Navigation */}
-        <Link to="/">Home</Link> | {" "}
-        <Link to="/products">Products</Link> | {" "}
-        <Link to="/about">About</Link> |{ " "} 
-        <Link to="/contact">Contact</Link>
+        <NavLink to="/" style={navLinkStyles}>Home</NavLink> | {" "}
+        <NavLink to="/products" style={navLinkStyles}>Products</NavLink> | {" "}
+        <NavLink to="/about" style={navLinkStyles}>About</NavLink> |{ " "} 
+        <NavLink to="/contact" style={navLinkStyles}>Contact</NavLink>
       </nav>
 
       {/* Routes */}
