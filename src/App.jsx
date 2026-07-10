@@ -7,9 +7,7 @@ function App() {
 
   return (
     <>
-      <section className="container my-2">
-        <p>Layout</p>
-      </section>
+      <Layout/>
     </>
   )
 }
